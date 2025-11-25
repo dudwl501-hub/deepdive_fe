@@ -1,0 +1,172 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Weather</title>
+
+    <head>
+    <style>
+        .calendar {
+            width: 100%;
+            border-collapse: collapse;
+            text-align: center;
+        }
+
+        .calendar th {
+            font-size: 14px;
+            padding: 12px 0;
+            color: #888;
+            border-bottom: 1px solid #eee;
+        }
+
+        .calendar td {
+            width: calc(100% / 7);
+            height: 120px;
+            padding: 8px;
+            vertical-align: top;
+            font-size: 14px;
+            position: relative;
+            border-bottom: 1px solid #f0f0f0;}
+
+        .day {
+            font-weight: bold;
+            margin-bottom: 4px;
+        }
+
+        .icon {
+            width: 24px;
+            margin: 4px 0;
+        }
+
+        .temp {
+            font-size: 12px;
+        }
+
+        .low { color: #1e73be; }
+        .high { color: #d64541; }
+
+        .rain {
+            font-size: 11px;
+            color: #4d90fe;
+        }
+
+        .prev-month {
+            color: #ccc;
+            opacity: 0.5;
+        }
+
+        .next-month {
+            color: #ccc;
+            opacity: 0.5;
+        }
+
+        .calendar thead th:nth-child(1) {
+            color: #e74c3c;
+        }
+
+        .calendar thead th:nth-child(7) {
+            color: #3498db;
+        }
+
+        .calendar tbody td:nth-child(1) {
+            color: #e74c3c;
+        }
+
+        .calendar tbody td:nth-child(7) {
+            color: #3498db;
+        }
+
+    </style>
+    </head>
+
+    <table class="calendar">
+        <thead>
+         <tr>
+            <th>일</th>
+            <th>월</th>
+            <th>화</th>
+            <th>수</th>
+            <th>목</th>
+            <th>금</th>
+            <th>토</th>
+        </tr>
+        </thead>
+
+    <tbody>
+        <!-- 10월 날짜(블러 처리)-->
+        <tr>
+        <td class="prev-month">
+            <div class="day">26</div>
+            <img src="icons/rain.png" alt="rain" class="icon">
+            <div class="temp"><span class="low">17°</span> / <span class="high">20°</span></div>
+            <div class="rain">1mm</div>
+        </td>
+        <td class="prev-month">
+            <div class="day">27</div>
+            <img src="icons/rain.png" alt="rain" class="icon">
+            <div class="temp"><span class="low">17°</span> / <span class="high">20°</span></div>
+            <div class="rain">1mm</div>
+        </td>
+        <td class="prev-month">
+            <div class="day">28</div>
+            <img src="icons/rain.png" alt="rain" class="icon">
+            <div class="temp"><span class="low">17°</span> / <span class="high">20°</span></div>
+            <div class="rain">1mm</div>
+        </td>
+        <td class="prev-month">
+            <div class="day">29</div>
+            <img src="icons/rain.png" alt="rain" class="icon">
+            <div class="temp"><span class="low">17°</span> / <span class="high">20°</span></div>
+            <div class="rain">1mm</div>
+        </td>
+        <td class="prev-month">
+            <div class="day">30</div>
+            <img src="icons/rain.png" alt="rain" class="icon">
+            <div class="temp"><span class="low">17°</span> / <span class="high">20°</span></div>
+            <div class="rain">1mm</div>
+        </td>
+        <td class="prev-month">
+            <div class="day">31</div>
+            <img src="icons/rain.png" alt="rain" class="icon">
+            <div class="temp"><span class="low">17°</span> / <span class="high">20°</span></div>
+            <div class="rain">1mm</div>
+        </td>
+
+        <!-- 11월 시작 -->
+        <td>
+            <div class="day">1</div>
+            <img src="icons/rain.png" alt="rain" class="icon">
+            <div class="temp"><span class="low">17°</span> / <span class="high">20°</span></div>
+            <div class="rain">1mm</div>
+        </td>
+        </tr>
+
+        <!-- 주 단위 반복 2~30일 넣을 예정-->
+       <tr>
+      <td>2</td><td>3</td><td>4</td><td>5</td><td>6</td><td>7</td><td>8</td>
+    </tr>
+    <tr>
+      <td>9</td><td>10</td><td>11</td><td>12</td><td>13</td><td>14</td><td>15</td>
+    </tr>
+    <tr>
+      <td>16</td><td>17</td><td>18</td><td>19</td><td>20</td><td>21</td><td>22</td>
+    </tr>
+    <tr>
+      <td>23</td><td>24</td><td>25</td><td>26</td><td>27</td><td>28</td><td>29</td>
+    </tr>
+    <tr>
+        <td>30</td>
+         <!--다음달 12월 덜 채운 곳(블러처리)-->
+        <td class="next-month">1</td>
+        <td class="next-month">2</td>
+        <td class="next-month">3</td>
+        <td class="next-month">4</td>
+        <td class="next-month">5</td>
+        <td class="next-month">6</td>
+    </tr>
+
+    </tbody>
+    </table>
+    </head>
+    </html>
