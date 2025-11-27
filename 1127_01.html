@@ -1,0 +1,102 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Document</title>
+    <style>
+        body {
+            background-color: #f3f4f5;
+        }
+
+        .container {
+            width: 100%;
+            max-width: 500px;
+            border: 1px solid #333;
+            padding: 20px;
+            border-radius: 20px;
+            line-height: 2;
+            margin: 50px auto;
+            font-size: 20px;
+            font-family: sans-serif;
+            position: relative
+        }
+
+        .btn {
+            display: 50%;
+            width: 100px;
+            height: 100px;
+            display: flex;
+
+        }
+
+        .btn-top {
+            background-color: tomato;
+            text-decoration: none
+            position: fixed;
+            right: 50px;
+            bottom: 50px;
+            }
+
+            .btn-left {
+                background-color: rgba( 0, 0, 0, 0.7);
+                border: none;
+                position: absolute;
+                left: -50px;
+                top: calc(50% - 50px);
+                z-index: ;
+            }
+
+            .btn-left2 {
+                background-color: rgba(0, 0, 0, 0.7);
+                border: none;
+                position: absolute;
+                left: -75px;
+                top: calc(50% - 50px);
+            }
+
+            .btn-right {
+                background-color: rgba(0, 0, 0, 0.7);
+                border: none;
+                position: absolute;
+                left: -25px;
+                top: calc(50% - 50px);
+            }
+
+            .btn-center {
+                background-color: rgba(0, 0, 0, 0.7);
+                border: none;
+                position: absolute;
+                 
+            }
+    </style>
+</head>
+
+<body>
+    <div class="container">
+        <p> Lorem ipsum dolor sit amet, consectetur adipisicing elit. Beatae exercitationem sapiente possimus totam unde
+            nihil
+            quae vel voluptate, in autem illo eveniet deserunt quos enim! Molestias consectetur odit qui minus.
+            Consectetur assumenda vero deserunt, vitae tempore dolor officia dolorem odit eum velit deleniti iusto
+            delectus
+            iure
+            voluptatem similique ea fugiat voluptas quidem itaque sapiente suscipit repellat? Nesciunt temporibus
+            recusandae
+            deserunt.
+        </p>
+
+        <!-- 탑 버튼 만들기 위치는 고정-->
+        <a href="#" class="btn-top">TOP</a>  
+        <button type="button" class="btn-left">LEFT</button>
+        <button type="button" class="btn-left2">LEFT2</button>
+        <button type="button" class="btn-right">RIGHT</button>
+        <button type="button" class="btn-center">CENTER</button>
+        
+        
+        
+    </div>
+
+</body>
+
+</html>
