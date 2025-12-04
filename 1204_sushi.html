@@ -1,0 +1,181 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+  <meta charset="UTF-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+  <title>회전초밥주문서</title>
+  <link rel="stylesheet" href="./css/reset.css" />
+  <style>
+    body {
+      font-family: sans-serif;
+      background-color: #262539;
+      color: #fff;
+    }
+
+    .menu-container {
+      width: 100%;
+      max-width: 700px;
+      margin: 50px auto;
+      border: 1px solid rgba(255, 255, 255, 0.2);
+      border-radius: 10px;
+      padding: 1em;
+      text-align: center;
+    }
+
+    h1 {
+      font-size: 1.5em;
+    }
+
+    main {
+      margin-top: 1em;
+      padding: 1em 0;
+      border-top: 1px solid rgba(255, 255, 255, 0.2);
+    }
+
+    section {
+      padding: 20px;
+      border: 1px solid rgba(255, 255, 255, 0.2);
+      border-radius: 15px;
+      margin: 2em 0;
+    }
+
+    section h2 {
+      font-size: 18px;
+      color: gold;
+      margin-bottom: 20px;
+    }
+
+    section h3 {
+      color: #94aa3d;
+      margin-bottom: 20px;
+    }
+
+    #order-list {
+      list-style: disc;
+      text-align: left;
+      padding-left: 2em;
+    }
+
+    #order-list li {
+      display: flex;
+      justify-content: space-between;
+      align-items: center;
+      gap: 8px;
+      margin-bottom: 4px;
+    }
+
+    .delete-btn {
+      border: none;
+      background: transparent;
+      cursor: pointer;
+      font-size: 14px;
+    }
+  </style>
+</head>
+
+<body>
+  <div class="menu-container">
+    <header>
+      <h1>회전초밥주문서</h1>
+      <p>원하는 초밥을 선택해서 주문목록에 담아보세요</p>
+    </header>
+    <main>
+      <section>
+        <h2>메뉴선택</h2>
+        <p>가격 : 한접시 1,500원</p>
+        <select id="select-sushi">
+          <option>연어초밥</option>
+          <option>광어초밥</option>
+          <option>참치초밥</option>
+          <option>계란초밥</option>
+          <option>유부초밥</option>
+          <option>새우초밥</option>
+        </select>
+        <button type="button" id="add-btn">+추가</button>
+
+        <h3>주문목록</h3>
+        <ul id="order-list"></ul>
+      </section>
+
+      <section class="total-container">
+        <h3>Total</h3>
+        <p>총 수량 : <strong id="total-count">0</strong></p>
+        <button type="button" id="btn-calc">계산하기</button>
+      </section>
+
+      <section class="order-container">
+        <h3>영수증</h3>
+        <div>
+          <p>총 주문금액</p>
+          <div class="total-price">
+            <span id="total-price">0</span> 원
+          </div>
+        </div>
+      </section>
+    </main>
+  </div>
+
+  <script>
+    // init
+    const sushiSelect = document.getElementById('select-sushi')
+    const addBtn = document.getElementById('add-btn')
+    const orderList = document.getElementById('order-list')
+    const totalCount = document.getElementById('total-count')
+    const btnCalc = document.getElementById('btn-calc')
+    const totalPriceEl = document.getElementById('total-price')
+
+    const UNIT_PRICE = 1500
+    let orders = [] // 주문목록 배열
+
+    // event
+    addBtn.addEventListener('click', addSushi)
+    btnCalc.addEventListener('click', showReceipt)
+
+    // 초밥 추가
+    function addSushi() {
+      const selectedSushi = sushiSelect.value
+
+      const newSushi = {
+        id: Date.now(),
+        name: selectedSushi,
+      }
+
+      orders = [...orders, newSushi]
+      render()
+    }
+
+    // 초밥 삭제
+    function removeSushi(id) {
+      orders = orders.filter(order => order.id !== id)
+      render()
+    }
+
+    // 화면 렌더링
+    function render() {
+      orderList.innerHTML = ''
+
+      orders.forEach(order => {
+        const li = document.createElement('li')
+        li.innerHTML = `
+          <span>${order.name}</span>
+          <button class="delete-btn">❌</button>
+        `
+        const deleteBtn = li.querySelector('.delete-btn')
+        deleteBtn.addEventListener('click', () => removeSushi(order.id))
+
+        orderList.appendChild(li)
+      })
+
+      totalCount.textContent = orders.length
+    }
+
+    // 영수증 발행
+    function showReceipt() {
+      const totalPrice = orders.length * UNIT_PRICE
+      totalPriceEl.textContent = totalPrice.toLocaleString()
+    }
+  </script>
+</body>
+
+</html>
